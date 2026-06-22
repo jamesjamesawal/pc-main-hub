@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC-Main · 世界杯专题</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f2f6f9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a39;
+      line-height: 1.6;
+      padding: 0 1rem 4rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #0d3b4f 0%, #1f6a7a 100%);
+      border-radius: 2rem 2rem 2rem 2rem;
+      padding: 3rem 2rem;
+      margin: 2rem 0 2.5rem;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 40, 50, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, #3bb3a0 0%, transparent 70%);
+      opacity: 0.25;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #f0fcfb;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #b3e2db;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: inline-block;
+      padding-top: 0.8rem;
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 背景说明 */
+    .bg-note {
+      background: #ffffffdd;
+      backdrop-filter: blur(4px);
+      border-left: 6px solid #2d8f87;
+      padding: 1.2rem 1.8rem;
+      border-radius: 0 1.2rem 1.2rem 0;
+      margin: 1rem 0 2.2rem;
+      font-size: 0.98rem;
+      color: #1d3a40;
+      box-shadow: 0 4px 12px rgba(0,30,40,0.03);
+    }
+    .bg-note strong {
+      color: #1a6c6c;
+    }
+
+    /* 网格卡片 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin: 2.4rem 0 2.8rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 6px 18px rgba(28, 60, 70, 0.04);
+      transition: 0.2s ease;
+      border: 1px solid #e6f0f2;
+    }
+    .card:hover {
+      box-shadow: 0 10px 28px rgba(30, 90, 90, 0.08);
+      transform: translateY(-3px);
+    }
+    .card .icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+      color: #0a3943;
+    }
+    .card p {
+      color: #2f424b;
+      font-size: 0.96rem;
+    }
+
+    /* 内容段落区 */
+    .intro-wrap {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 2rem 2.2rem;
+      margin: 1.8rem 0 2.2rem;
+      box-shadow: 0 4px 14px rgba(20,50,60,0.02);
+    }
+    .intro-wrap p {
+      margin-bottom: 1.1rem;
+    }
+    .intro-wrap p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用/提示 */
+    .foot-hint {
+      background: #e4f1ef;
+      padding: 1.6rem 2rem;
+      border-radius: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .foot-hint span {
+      font-size: 0.95rem;
+      color: #1b4b4f;
+    }
+    .tagline {
+      font-weight: 500;
+      color: #0f5659;
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    a {
+      color: #077b7b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #077b7b;
+    }
+
+    /* 移动端 */
+    @media (max-width: 550px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 2.2rem 1.2rem; }
+      .intro-wrap { padding: 1.5rem; }
+      .bg-note { margin-left: -0.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- hero 横幅 -->
+    <header class="hero">
+      <h1>⚽ 世界杯 · 信息枢纽</h1>
+      <div class="sub">专业赛事参考 · 动态追踪 · 可信数据</div>
+    </header>
+
+    <!-- 背景说明：站点介绍与可信角度 -->
+    <div class="bg-note">
+      <strong>pc-main-sjb.com</strong> 聚焦国际足联世界杯及相关赛事内容，提供经过整合的赛程、球队数据与背景分析。平台不直接转播赛事，而是作为资讯聚合与知识参考站点，辅助球迷快速获取结构化信息。所有数据来源均标注并定期校核，保持较高的可信度。
+    </div>
+
+    <!-- 三段自然介绍·网格卡片形式 -->
+    <div class="grid-cards">
+      <div class="card">
+        <span class="icon">📋</span>
+        <h3>赛程与战报</h3>
+        <p>覆盖小组赛至决赛的完整赛历，每轮结束后更新比分、进球与关键事件。历史世界杯数据也可回溯查阅，便于对比历届表现。</p>
+      </div>
+      <div class="card">
+        <span class="icon">🏆</span>
+        <h3>球队 &amp; 球员档案</h3>
+        <p>收录参赛代表队大名单、出场记录、战术倾向与核心球员特征。资料经多源比对，减少不实信息干扰。</p>
+      </div>
+      <div class="card">
+        <span class="icon">📊</span>
+        <h3>统计与趋势</h3>
+        <p>控球率、射门转化、跑动距离等进阶数据以可视化方式呈现。帮助从数字层面理解比赛节奏与队伍风格。</p>
+      </div>
+    </div>
+
+    <!-- 进一步介绍（较详细） -->
+    <div class="intro-wrap">
+      <p>从预选赛到决赛圈，每届<span style="background: #def3f0; padding: 0.1rem 0.4rem; border-radius: 6px;">世界杯</span>都承载着大量战术细节与场外背景。本站以结构化的方式整理这些信息，用户可以根据年份、轮次、小组或队伍来筛选内容。赛事期间页面通常每日更新，非赛事阶段则维护历史数据与专题回顾。</p>
+      <p>对于希望深入了解比赛脉络的球迷，<a href="https://pc-main-sjb.com">世界杯</a>专题栏目提供了技战术解读与数据对比模块，内容由关注足球分析领域的作者协作完成。每篇分析均标注参考来源，方便延伸阅读。平台不设置自动播放广告，阅读体验相对干净。</p>
+      <p>数据准确性是本站的优先考量。比分、出线形势与纪律记录均对照官方赛报进行核查，遇到争议判罚或修正信息时会添加备注说明。如果你在浏览过程中发现数据出入，可通过站点底部反馈渠道告知。</p>
+    </div>
+
+    <!-- FAQ摘要式提示 & 页尾访问 -->
+    <div class="foot-hint">
+      <span>❓ 常见问题：如何查询某支球队的历史世界杯战绩？→ 在站内搜索队名即可调出历届记录。</span>
+      <span>🔍 更多内容请直接访问 <a href="https://pc-main-sjb.com" style="border-bottom:1px solid currentColor;">世界杯</a> 专题页。</span>
+      <span class="tagline">数据校验 · 中立视角</span>
+    </div>
+
+    <!-- 非常简洁的页脚 -->
+    <div style="margin-top: 2.8rem; font-size: 0.8rem; color: #7e969e; text-align: center; border-top: 1px solid #d1e2e5; padding-top: 1.2rem;">
+      pc-main-sjb.com · 世界杯内容聚合 · 非官方站点 · 仅供参考
+    </div>
+
+  </div>
+</body>
+</html>
